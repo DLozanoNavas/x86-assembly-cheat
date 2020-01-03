@@ -4,7 +4,7 @@
     Avoid it, use `cpp` instead which is more powerful.
 */
 
-#include "lib/asm_io_s.h"
+#include "lib/common_gas.h"
 
 ENTRY
 
@@ -38,9 +38,9 @@ ENTRY
             .ascii "\x"
         .endm
         mov s, %al
-        ASSERT_EQ2($0x61, %al)
+        ASSERT_EQ($0x61, %al)
 
-    EXIT
+EXIT
 
 .data
     s:

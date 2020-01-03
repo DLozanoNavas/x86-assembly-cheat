@@ -8,10 +8,10 @@
             ;Any thing.
         ;%endcomment
 
-%include "lib/asm_io.inc"
+%include "lib/common_nasm.inc"
 
 ENTRY
     mov eax, 1
     ; mov eax, 2
-    ASSERT_EQ(1)
-    EXIT
+    ASSERT_EQ eax, 1
+EXIT

@@ -1,18 +1,18 @@
-; # Symbol colon
+; The colon after a simbol name is optional in NASM.
+;
+; http://stackoverflow.com/questions/8006365/is-there-a-difference-between-using-or-not-a-colon-after-symbol-name-definitions
 
-    ; http://stackoverflow.com/questions/8006365/is-there-a-difference-between-using-or-not-a-colon-after-symbol-name-definitions
-
-    ; Optional
-
-%include "lib/asm_io.inc"
+%include "lib/common_nasm.inc"
 
 DATA
+    ; With colon.
     x: db 1
+    ; Without colon.
     y db 2
 ENTRY
     mov eax, 0
     mov al, [x]
-    ASSERT_EQ(1)
+    ASSERT_EQ eax, 1
     mov al, [y]
-    ASSERT_EQ(2)
-    EXIT
+    ASSERT_EQ eax, 2
+EXIT

@@ -19,7 +19,7 @@
 
     ; TODO what are their initial values in Linux?
 
-%include "lib/asm_io.inc"
+%include "lib/common_nasm.inc"
 
 ENTRY
     PRINT_STRING_LITERAL 'CS'
@@ -44,4 +44,4 @@ ENTRY
     ;mov eax, 0
     ;mov ss, eax
 
-    EXIT
+EXIT

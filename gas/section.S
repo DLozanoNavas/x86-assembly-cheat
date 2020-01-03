@@ -33,7 +33,7 @@
     This would be an Allocatable Writable and eXecutable section.
 */
 
-#include "lib/asm_io_s.h"
+#include "lib/common_gas.h"
 
 .section .data
     i: .long 1
@@ -41,5 +41,5 @@
     j: .long 1
 ENTRY
     mov i, %eax
-    ASSERT_EQ($1)
-    EXIT
+    ASSERT_EQ($1, %eax)
+EXIT

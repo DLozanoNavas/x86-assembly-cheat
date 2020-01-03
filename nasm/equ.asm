@@ -2,7 +2,7 @@
 
     ; http://stackoverflow.com/a/33148242/895245
 
-%include "lib/asm_io.inc"
+%include "lib/common_nasm.inc"
 
 DATA
     global x
@@ -10,7 +10,7 @@ DATA
     y: dd 1 + 1
 ENTRY
     mov eax, x
-    ASSERT_EQ(2)
+    ASSERT_EQ eax, 2
     mov eax, [y]
-    ASSERT_EQ(2)
-    EXIT
+    ASSERT_EQ eax, 2
+EXIT

@@ -8,7 +8,7 @@
     ; This is important for example in the C calling convention,
     ; where certain registers must not be changed by functions.
 
-%include "lib/asm_io.inc"
+%include "lib/common_nasm.inc"
 
 ENTRY
 
@@ -19,7 +19,7 @@ ENTRY
     pusha
     sub eax, esp
     ; 8x 4 bytes
-    ASSERT_EQ 32
+    ASSERT_EQ eax, 32
 
     mov ebx, 1
     mov ecx, 1
@@ -27,4 +27,4 @@ ENTRY
     ASSERT_EQ ebx, 0
     ASSERT_EQ ecx, 0
 
-    EXIT
+EXIT

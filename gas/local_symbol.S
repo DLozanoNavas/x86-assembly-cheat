@@ -11,7 +11,7 @@ Unlike NASM's `.label`, such labels are visible on the entire file,
 and cannot be redefined.
 */
 
-#include "lib/asm_io_s.h"
+#include "lib/common_gas.h"
 
 .data
     not_local:
@@ -21,9 +21,9 @@ and cannot be redefined.
         .long 2
 ENTRY
     mov not_local, %eax
-    ASSERT_EQ($1)
+    ASSERT_EQ($1, %eax)
 
     mov .Lyes_local, %eax
-    ASSERT_EQ($2)
+    ASSERT_EQ($2, %eax)
 
-    EXIT
+EXIT

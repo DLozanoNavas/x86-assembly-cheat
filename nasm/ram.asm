@@ -1,8 +1,6 @@
-; # RAM
-
 ; Examples of how to access RAM in NASM.
 
-%include "lib/asm_io.inc"
+%include "lib/common_nasm.inc"
 
 section .bss
 
@@ -17,13 +15,13 @@ ENTRY
     ; Data:
 
         mov dword [resd0], 1
-        ASSERT_EQ [resd0]
+        ASSERT_EQ [resd0], 1, dword
 
     ; Address:
 
         mov dword eax, resd1
         sub eax, resd0
-        ASSERT_EQ 4
+        ASSERT_EQ eax, 4
 
     ; # Memory size
 
@@ -91,4 +89,4 @@ ENTRY
 
             ; 64
 
-    EXIT
+EXIT

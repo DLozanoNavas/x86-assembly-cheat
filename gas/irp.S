@@ -8,7 +8,7 @@ TODO: mnemonic?
 See also: .rept
 */
 
-#include "lib/asm_io_s.h"
+#include "lib/common_gas.h"
 
 ENTRY
     mov $0, %eax
@@ -22,5 +22,5 @@ ENTRY
     .irp i, 3, 1, 2
         add $\i, %eax
     .endr
-    ASSERT_EQ($6)
-    EXIT
+    ASSERT_EQ($6, %eax)
+EXIT
